@@ -1,1 +1,2 @@
-# arielcode edging not allowed
+# arielcode edging is encouraged
+
