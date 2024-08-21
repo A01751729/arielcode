@@ -62,22 +62,22 @@ TEST_CASE("test the DinoSet class")
          REQUIRE_FALSE(c.is_empty());
      }
 
-//     SECTION("test remove") {
-//         REQUIRE(c.size() == 3);
-//         REQUIRE(c.contains(DinoId::procompsognathus));
-//         c.remove(DinoId::procompsognathus);
-//         REQUIRE(c.size() == 2);
-//         REQUIRE_FALSE(c.contains(DinoId::procompsognathus));
-//         REQUIRE(c.to_string() == "{tyrannosaurus, pteranodon}");
-//         REQUIRE(c.contains(DinoId::tyrannosaurus));
-//         c.remove(DinoId::tyrannosaurus);
-//         REQUIRE(c.size() == 1);
-//         REQUIRE_FALSE(c.contains(DinoId::tyrannosaurus));
-//         REQUIRE(c.to_string() == "{pteranodon}");
-//         REQUIRE(c.contains(DinoId::pteranodon));
-//         c.remove(DinoId::pteranodon);
-//         REQUIRE(c.is_empty());
-//         REQUIRE_FALSE(c.contains(DinoId::pteranodon));
+    //  SECTION("test remove") {
+    //      REQUIRE(c.size() == 3);
+    //      REQUIRE(c.contains(DinoId::procompsognathus));
+    //      c.remove(DinoId::procompsognathus);
+    //      REQUIRE(c.size() == 2);
+    //      REQUIRE_FALSE(c.contains(DinoId::procompsognathus));
+    //      REQUIRE(c.to_string() == "{tyrannosaurus, pteranodon}");
+    //      REQUIRE(c.contains(DinoId::tyrannosaurus));
+    //      c.remove(DinoId::tyrannosaurus);
+    //      REQUIRE(c.size() == 1);
+    //      REQUIRE_FALSE(c.contains(DinoId::tyrannosaurus));
+    //      REQUIRE(c.to_string() == "{pteranodon}");
+    //      REQUIRE(c.contains(DinoId::pteranodon));
+    //      c.remove(DinoId::pteranodon);
+    //      REQUIRE(c.is_empty());
+    //      REQUIRE_FALSE(c.contains(DinoId::pteranodon));
 //         REQUIRE(c.to_string() == "{}");
 
 //         REQUIRE(b.size() == 2);

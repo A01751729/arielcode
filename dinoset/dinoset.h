@@ -22,10 +22,36 @@ class DinoSet{
         _dino[index] = true;
     }
 
+    void remove(DinoId id)
+    {
+        int index = static_cast<int>(id);
+        _dino[index] = false;
+    }
+
     bool contains(DinoId id) const
     {
         int index = static_cast<int>(id);
         return _dino[index];
+    }
+
+    int size(){
+      int counter=0;
+      for (int i=0;i<total_dinos;i++){
+        if (_dino[i]){
+          counter+=1;
+        }
+      }
+      
+      return counter;
+    }
+
+    bool is_empty(){
+      if(this->size()==0){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
 
     //union of sets
@@ -41,9 +67,33 @@ class DinoSet{
         return result;
     }
 
+    DinoSet operator*(const DinoSet& other) const
+    {
+        DinoSet result;
+        for (int i = 0; i < total_dinos; i++) {
+            DinoId id = static_cast<DinoId>(i);
+            if (this->contains(id) and other.contains(id)) {
+                result.add(id);
+            }
+        }
+        return result;
+    }
+
+    DinoSet operator-(const DinoSet& other) const
+    {
+        DinoSet result;
+        for (int i = 0; i < total_dinos; i++) {
+            DinoId id = static_cast<DinoId>(i);
+            if (this->contains(id) and (other.contains(id)==false)) {
+                result.add(id);
+            }
+        }
+        return result;
+    }
+
     std::string to_string() const
     {
-        std::string result = "";
+        std::string result = "{}";
         for (int i = 0; i < total_dinos; i++) {
             if (_dino[i]) {
                 result += "1";
@@ -51,27 +101,11 @@ class DinoSet{
                 result += "0";
             }
         }
+        
+        
         return result;
     }
 
-    int size(){
-      int counter=0;
-      for (int i=0;i<total_dinos;i++){
-        if (_dino[i]){
-          counter+=1;
-        }
-      }
-      return counter;
-    }
-
-    bool is_empty(){
-      if(this->size()==0){
-        return true;
-      }
-      else{
-        return false;
-      }
-    }
 
   private:
     bool _dino[total_dinos]{};

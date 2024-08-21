@@ -23,6 +23,14 @@ int main()
     c=a+b;
      std::cout << "c = " << c.to_string() << "\n";
 
+    DinoSet d;
+    d=a*b;
+     std::cout << "d = " << d.to_string() << "\n";
+
+    DinoSet e;
+    e=b-a;
+     std::cout << "e = " << e.to_string() << "\n";
+
 
     return 0;
 }
