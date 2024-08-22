@@ -1,7 +1,10 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 const int total_dinos = 8;
+
+
 
 enum class DinoId {
     velociraptor,        // 0
@@ -22,19 +25,19 @@ class DinoSet{
         _dino[index] = true;
     }
 
-    void remove(DinoId id)
+  void remove(DinoId id)
     {
         int index = static_cast<int>(id);
         _dino[index] = false;
     }
 
-    bool contains(DinoId id) const
+  bool contains(DinoId id) const
     {
         int index = static_cast<int>(id);
         return _dino[index];
     }
 
-    int size(){
+  int size() const{
       int counter=0;
       for (int i=0;i<total_dinos;i++){
         if (_dino[i]){
@@ -45,7 +48,8 @@ class DinoSet{
       return counter;
     }
 
-    bool is_empty(){
+
+  bool is_empty() const{
       if(this->size()==0){
         return true;
       }
@@ -93,13 +97,18 @@ class DinoSet{
 
     std::string to_string() const
     {
-        std::string result = "{}";
+        std::string result = "{";
         for (int i = 0; i < total_dinos; i++) {
-            if (_dino[i]) {
-                result += "1";
-            } else {
-                result += "0";
-            }
+          if (_dino[i]){
+            result=result+_names[i]+", ";
+          }
+        }
+        if(this->is_empty()){
+          result=result+"}";
+          }
+        else{
+          result.erase(result.size()-2,result.size()-1);
+          result=result+"}";
         }
         
         
@@ -109,6 +118,9 @@ class DinoSet{
 
   private:
     bool _dino[total_dinos]{};
+    std:: string _names[total_dinos]{"velociraptor","stegosaurus",         // 1
+    "tyrannosaurus","procompsognathus","triceratops",
+    "pachycephalosaurus","parasaurolophus","pteranodon"};
       };
 
 
