@@ -106,6 +106,21 @@ class DinoSet{
         return result;
     }
 
+    bool operator==(const DinoSet& other) const
+    {
+        int mismatch = 0;
+        for (int i = 0; i < total_dinos; i++) {
+            if (this->contains(static_cast<DinoId>(i)) != other.contains(static_cast<DinoId>(i))) {
+                mismatch+=1;
+            }
+        }
+        if (mismatch == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     std::string to_string() const
     {
         std::string result = "{";
