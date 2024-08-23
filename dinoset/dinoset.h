@@ -95,6 +95,17 @@ class DinoSet{
         return result;
     }
 
+    DinoSet operator!() const
+    {
+        DinoSet result;
+        for (int i = 0; i < total_dinos; i++) {
+            if (this->contains(static_cast<DinoId>(i)) == 0) {
+                result.add(static_cast<DinoId>(i));
+            }
+        }
+        return result;
+    }
+
     std::string to_string() const
     {
         std::string result = "{";
