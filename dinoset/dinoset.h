@@ -1,3 +1,12 @@
+/*----------------------------------------------------------
+ * Lab #1: DinoSets
+ * Implementation of the DinoSet class.
+ *
+ * Date: 23-Aug-2024
+ * Authors:
+ *           A01751729 Andres Mendez Cortez
+ *           A01751433 Israel Gonzalez Huerta
+ *----------------------------------------------------------*/
 #pragma once
 #include <iostream>
 #include <string>
