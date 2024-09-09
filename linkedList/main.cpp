@@ -38,5 +38,11 @@ int main()
     std::cout << "b.size() = " << b.size() << "\n";
     std::cout << b.to_string() << "\n";
 
+    if (a.contains(11) == true) {
+        std::cout << "Sí está" << "\n";
+    } else {
+        std::cout << "No está" << "\n";
+    }
+
     return 0;
 }

@@ -2,6 +2,7 @@
 
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
 
 template<typename T>
 class LinkedList {
@@ -39,6 +40,20 @@ public:
         }
         delete _sentinel;
     };
+
+    bool contains(T value) const
+    {
+        Node* p = _sentinel->next;
+        bool found = false;
+
+        while (p != _sentinel) {
+            if (p->value == value) {
+                found = true;
+            }
+            p = p->next;
+        }
+        return found;
+    }
 
     //Complexity: O(1)
     void insert_back(T value)
