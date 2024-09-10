@@ -87,6 +87,20 @@ public:
     }
 
     //Complexity: O(1)
+    T remove_back(){
+        if(is_empty()) {
+            throw std::length_error(
+                "Can't remove from an empty list");
+        }
+        Node* p = _sentinel->prev;
+        T result = p->value;
+        _sentinel->prev = p->prev;
+        p->prev->next = _sentinel;
+        delete p;
+        _size--;
+        return result;
+    }
+
     T remove_front()
     {
         if(is_empty()) {

@@ -182,30 +182,30 @@ TEST_CASE("test the LinkedList class")
         REQUIRE(total == 122.625);
     }
 
-    // SECTION("test remove_back") {
-    //     REQUIRE_THROWS_AS(a.remove_back(), std::length_error);
-    //     REQUIRE(b.remove_back() == 1);
-    //     REQUIRE(b.remove_back() == 2);
-    //     REQUIRE(b.size() == 2);
-    //     REQUIRE(b.to_string() == "[4, 3]");
-    //     REQUIRE(b.remove_back() == 3);
-    //     REQUIRE(b.remove_back() == 4);
-    //     REQUIRE(b.size() == 0);
-    //     REQUIRE(b.to_string() == "[]");
-    //     REQUIRE_THROWS_AS(b.remove_back(), std::length_error);
-    //     REQUIRE(c.remove_back() == "alfa");
-    //     REQUIRE(c.remove_back() == "beta");
-    //     REQUIRE(c.remove_back() == "gamma");
-    //     REQUIRE(c.size() == 3);
-    //     REQUIRE(c.to_string() == "[dseta, épsilon, delta]");
-    //     double total = 0;
-    //     while (not d.is_empty()) {
-    //         total += d.remove_back();
-    //     }
-    //     REQUIRE(d.size() == 0);
-    //     REQUIRE(d.to_string() == "[]");
-    //     REQUIRE(total == 122.625);
-    // }
+     SECTION("test remove_back") {
+         REQUIRE_THROWS_AS(a.remove_back(), std::length_error);
+         REQUIRE(b.remove_back() == 1);
+         REQUIRE(b.remove_back() == 2);
+         REQUIRE(b.size() == 2);
+         REQUIRE(b.to_string() == "[4, 3]");
+         REQUIRE(b.remove_back() == 3);
+         REQUIRE(b.remove_back() == 4);
+         REQUIRE(b.size() == 0);
+         REQUIRE(b.to_string() == "[]");
+         REQUIRE_THROWS_AS(b.remove_back(), std::length_error);
+         REQUIRE(c.remove_back() == "alfa");
+         REQUIRE(c.remove_back() == "beta");
+         REQUIRE(c.remove_back() == "gamma");
+         REQUIRE(c.size() == 3);
+         REQUIRE(c.to_string() == "[dseta, épsilon, delta]");
+         double total = 0;
+         while (not d.is_empty()) {
+             total += d.remove_back();
+         }
+         REQUIRE(d.size() == 0);
+         REQUIRE(d.to_string() == "[]");
+         REQUIRE(total == 122.625);
+     }
 
     // SECTION("test remove_at") {
     //     REQUIRE_THROWS_AS(a.remove_at(0), std::out_of_range);
