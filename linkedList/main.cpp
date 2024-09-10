@@ -43,6 +43,11 @@ int main()
     } else {
         std::cout << "No está" << "\n";
     }
+    
+    std::cout << a.to_string() << "\n";
+    a.remove_at(-1);
+
+    std::cout << a.to_string() << "\n";
 
     return 0;
 }

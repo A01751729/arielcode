@@ -86,6 +86,27 @@ public:
         return not _size;
     }
 
+    T remove_at(int index)
+    {
+        Node* p = _sentinel;
+        if(index >= 0) {
+            for(int i = 0; i <= index; i++) {
+                p = p->next;
+            }
+            p->prev->next = p->next;
+            p->next->prev = p->prev;
+            delete p;
+        } else {
+            for(int i = ; i >= index; i--) {
+                p = p->prev;
+            }
+            p->prev->next = p->next;
+            p->next->prev = p->prev;
+            delete p;
+        }
+        return 0;
+    }
+
     //Complexity: O(1)
     T remove_back(){
         if(is_empty()) {
