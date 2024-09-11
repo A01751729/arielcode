@@ -55,6 +55,26 @@ public:
         return found;
     }
 
+    T get(int index) const
+    {
+        Node* p = _sentinel;
+        if (index >= this->size()) {
+            throw std::out_of_range(
+                "Can't remove from an index greater than the amount of elements in the list");
+        }
+        if (index <= 0) {
+            throw std::out_of_range(
+                "Can't remove from an index smaller or greater than 0");
+        }
+        if (index > 0 && index < this->size()) {
+            for(int i = 0; i < index; i++) {
+                p = p->next;
+            }
+            std::cout << "Valor: " << p->value << "\n";
+        }
+        return p->value;
+    }
+
     //Complexity: O(1)
     void insert_back(T value)
     {
@@ -97,7 +117,7 @@ public:
             p->next->prev = p->prev;
             delete p;
         } else {
-            for(int i = ; i >= index; i--) {
+            for(int i = -1; i >= index; i--) {
                 p = p->prev;
             }
             p->prev->next = p->next;

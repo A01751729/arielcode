@@ -49,5 +49,7 @@ int main()
 
     std::cout << a.to_string() << "\n";
 
+    a.get(5);
+
     return 0;
 }
