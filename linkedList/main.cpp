@@ -45,11 +45,10 @@ int main()
     }
     
     std::cout << a.to_string() << "\n";
-    a.remove_at(-1);
 
     std::cout << a.to_string() << "\n";
 
-    a.get(5);
+    std:: cout<<a.get(0)<< "\n";
 
     return 0;
 }

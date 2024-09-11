@@ -54,23 +54,28 @@ public:
         }
         return found;
     }
+    void extend(const LinkedList<T>& other){
+        for(int i = 0; i < other.size(); i++){
+            insert_back(other.get(i));
+        }
+    }
 
     T get(int index) const
     {
-        Node* p = _sentinel;
-        if (index >= this->size()) {
+        Node* p = _sentinel->next;
+        if (index >= size()) {
             throw std::out_of_range(
                 "Can't remove from an index greater than the amount of elements in the list");
         }
-        if (index <= 0) {
+        if (index < 0) {
             throw std::out_of_range(
-                "Can't remove from an index smaller or greater than 0");
+                "Can't remove from an index smaller than 0");
         }
-        if (index > 0 && index < this->size()) {
+        if (index > 0 && index < size()) {
             for(int i = 0; i < index; i++) {
                 p = p->next;
             }
-            std::cout << "Valor: " << p->value << "\n";
+            
         }
         return p->value;
     }
