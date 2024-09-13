@@ -1,5 +1,13 @@
-#pragma once
+/*----------------------------------------------------------
+ * Lab #2: Linked Lists
+ *
+ * Date: 20-Sep-2024
+ * Authors:
+#           A01751433 Israel Gonzalez Huerta
+#           A01751729 Andres Mendez Cortez
+ *----------------------------------------------------------*/
 
+#pragma once
 #include <sstream>
 #include <stdexcept>
 #include <iostream>
@@ -80,6 +88,29 @@ public:
         return p->value;
     }
 
+    void insert_at(int index,T value)
+    {
+        if (index > size()) {
+            throw std::out_of_range("Can't insert at an index greater than the amount of elements in the list");
+        }
+        if (index < 0) {
+            throw std::out_of_range("Can't insert at an index smaller than the amount of elements in the list");
+        }
+        Node* p = _sentinel;
+        if (index >= 0 && index <= size()) {
+            for(int i = 0; i <= index; i++) {
+                p = p->next;
+            }
+            Node* q  = new Node;
+            q->value = value;
+            p->prev->next = q;
+            q->prev = p->prev;
+            p->prev = q;
+            q->next = p;
+            _size++;
+        }
+    }
+
     //Complexity: O(1)
     void insert_back(T value)
     {
@@ -114,23 +145,24 @@ public:
     T remove_at(int index)
     {
         Node* p = _sentinel;
-        if(index >= 0) {
+        if (index >= size()) {
+            throw std::out_of_range("Can't remove at an index greater than the amount of elements in the list");
+        }
+        if (index < 0) {
+            throw std::out_of_range("Can't remove at an index smaller than the amount of elements in the list");
+        }
+        if(index >= 0 && index < this->size()) {
             for(int i = 0; i <= index; i++) {
                 p = p->next;
             }
             p->prev->next = p->next;
             p->next->prev = p->prev;
-            delete p;
-        } else {
-            for(int i = -1; i >= index; i--) {
-                p = p->prev;
-            }
-            p->prev->next = p->next;
-            p->next->prev = p->prev;
-            delete p;
+            _size--;
         }
-        return 0;
+        return p->value;
+        delete p;
     }
+
 
     //Complexity: O(1)
     T remove_back(){

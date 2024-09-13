@@ -117,45 +117,45 @@ TEST_CASE("test the LinkedList class")
          REQUIRE_THROWS_AS(d.get(100), std::out_of_range);
      }
 
-    // SECTION("test insert_at") {
-    //     REQUIRE_THROWS_AS(a.insert_at(-1, true), std::out_of_range);
-    //     a.insert_at(0, false);
-    //     REQUIRE(a.to_string() == "[0]");
-    //     a.insert_at(0, true);
-    //     REQUIRE(a.to_string() == "[1, 0]");
-    //     a.insert_at(2, true);
-    //     REQUIRE(a.to_string() == "[1, 0, 1]");
-    //     REQUIRE_THROWS_AS(b.insert_at(-1, 2), std::out_of_range);
-    //     b.insert_at(4, 5);
-    //     b.insert_at(0, 6);
-    //     b.insert_at(2, 7);
-    //     b.insert_at(4, 8);
-    //     b.insert_at(8, 9);
-    //     b.insert_at(1, 10);
-    //     REQUIRE(b.size() == 10);
-    //     REQUIRE(b.to_string() == "[6, 10, 4, 7, 3, 8, 2, 1, 5, 9]");
-    //     REQUIRE_THROWS_AS(b.insert_at(11, 0), std::out_of_range);
-    //     REQUIRE_THROWS_AS(c.insert_at(-15, "pi"), std::out_of_range);
-    //     c.insert_at(6, "omega");
-    //     c.insert_at(6, "psi");
-    //     c.insert_at(0, "eta");
-    //     c.insert_at(2, "theta");
-    //     REQUIRE(b.size() == 10);
-    //     REQUIRE(c.to_string()
-    //         == "[eta, dseta, theta, épsilon, delta, gamma, "
-    //           "beta, alfa, psi, omega]");
-    //     REQUIRE_THROWS_AS(c.insert_at(11, "pi"), std::out_of_range);
-    //     REQUIRE_THROWS_AS(d.insert_at(-101, 3.1416), std::out_of_range);
-    //     d.insert_at(1, 2.4142);
-    //     d.insert_at(0, 3.1416);
-    //     d.insert_at(0, 2.7182);
-    //     d.insert_at(d.size(), 1.618);
-    //     d.insert_at(d.size(), 1.4142);
-    //     REQUIRE(d.size() == 13);
-    //     REQUIRE(d.to_string()
-    //         == "[2.7182, 3.1416, -5.5, 2.4142, 76.125, 0, 42, 10.75, "
-    //           "-4.25, 2.5, 1, 1.618, 1.4142]");
-    // }
+    SECTION("test insert_at") {
+         REQUIRE_THROWS_AS(a.insert_at(-1, true), std::out_of_range);
+         a.insert_at(0, false);
+         REQUIRE(a.to_string() == "[0]");
+         a.insert_at(0, true);
+         REQUIRE(a.to_string() == "[1, 0]");
+         a.insert_at(2, true);
+         REQUIRE(a.to_string() == "[1, 0, 1]");
+         REQUIRE_THROWS_AS(b.insert_at(-1, 2), std::out_of_range);
+         b.insert_at(4, 5);
+         b.insert_at(0, 6);
+         b.insert_at(2, 7);
+         b.insert_at(4, 8);
+         b.insert_at(8, 9);
+         b.insert_at(1, 10);
+         REQUIRE(b.size() == 10);
+         REQUIRE(b.to_string() == "[6, 10, 4, 7, 3, 8, 2, 1, 5, 9]");
+         REQUIRE_THROWS_AS(b.insert_at(11, 0), std::out_of_range);
+         REQUIRE_THROWS_AS(c.insert_at(-15, "pi"), std::out_of_range);
+         c.insert_at(6, "omega");
+         c.insert_at(6, "psi");
+         c.insert_at(0, "eta");
+         c.insert_at(2, "theta");
+         REQUIRE(b.size() == 10);
+         REQUIRE(c.to_string()
+             == "[eta, dseta, theta, épsilon, delta, gamma, "
+               "beta, alfa, psi, omega]");
+         REQUIRE_THROWS_AS(c.insert_at(11, "pi"), std::out_of_range);
+         REQUIRE_THROWS_AS(d.insert_at(-101, 3.1416), std::out_of_range);
+         d.insert_at(1, 2.4142);
+         d.insert_at(0, 3.1416);
+         d.insert_at(0, 2.7182);
+         d.insert_at(d.size(), 1.618);
+         d.insert_at(d.size(), 1.4142);
+         REQUIRE(d.size() == 13);
+         REQUIRE(d.to_string()
+             == "[2.7182, 3.1416, -5.5, 2.4142, 76.125, 0, 42, 10.75, "
+               "-4.25, 2.5, 1, 1.618, 1.4142]");
+    }
 
     SECTION("test remove_front") {
         REQUIRE_THROWS_AS(a.remove_front(), std::length_error);
@@ -207,29 +207,29 @@ TEST_CASE("test the LinkedList class")
          REQUIRE(total == 122.625);
      }
 
-    // SECTION("test remove_at") {
-    //     REQUIRE_THROWS_AS(a.remove_at(0), std::out_of_range);
-    //     REQUIRE_THROWS_AS(b.remove_at(-1), std::out_of_range);
-    //     REQUIRE(b.remove_at(0) == 4);
-    //     REQUIRE(b.remove_at(2) == 1);
-    //     REQUIRE(b.size() == 2);
-    //     REQUIRE(b.to_string() == "[3, 2]");
-    //     REQUIRE_THROWS_AS(b.remove_at(2), std::out_of_range);
-    //     REQUIRE_THROWS_AS(c.remove_at(6), std::out_of_range);
-    //     REQUIRE(c.remove_at(5) == "alfa");
-    //     REQUIRE(c.remove_at(0) == "dseta");
-    //     REQUIRE(c.remove_at(3) == "beta");
-    //     REQUIRE(c.remove_at(1) == "delta");
-    //     REQUIRE(c.size() == 2);
-    //     REQUIRE(c.to_string() == "[épsilon, gamma]");
-    //     double total = 0;
-    //     while (not d.is_empty()) {
-    //         total += d.remove_at(d.size() - 1);
-    //     }
-    //     REQUIRE(d.size() == 0);
-    //     REQUIRE(d.to_string() == "[]");
-    //     REQUIRE(total == 122.625);
-    // }
+     SECTION("test remove_at") {
+         REQUIRE_THROWS_AS(a.remove_at(0), std::out_of_range);
+         REQUIRE_THROWS_AS(b.remove_at(-1), std::out_of_range);
+         REQUIRE(b.remove_at(0) == 4);
+         REQUIRE(b.remove_at(2) == 1);
+         REQUIRE(b.size() == 2);
+         REQUIRE(b.to_string() == "[3, 2]");
+         REQUIRE_THROWS_AS(b.remove_at(2), std::out_of_range);
+         REQUIRE_THROWS_AS(c.remove_at(6), std::out_of_range);
+         REQUIRE(c.remove_at(5) == "alfa");
+         REQUIRE(c.remove_at(0) == "dseta");
+         REQUIRE(c.remove_at(3) == "beta");
+         REQUIRE(c.remove_at(1) == "delta");
+         REQUIRE(c.size() == 2);
+         REQUIRE(c.to_string() == "[épsilon, gamma]");
+         double total = 0;
+         while (not d.is_empty()) {
+             total += d.remove_at(d.size() - 1);
+         }
+         REQUIRE(d.size() == 0);
+         REQUIRE(d.to_string() == "[]");
+         REQUIRE(total == 122.625);
+     }
 
      SECTION("test extend") {
          LinkedList<bool> a2;
