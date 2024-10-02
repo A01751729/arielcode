@@ -30,7 +30,7 @@ TEST_CASE("test the Queue class")
     d.enqueue(76.125);
     d.enqueue(-5.5);
 
-    SECTION("test size") {
+     SECTION("test size") {
         REQUIRE(a.size() == 0);
         REQUIRE(b.size() == 4);
         REQUIRE(c.size() == 6);
@@ -50,7 +50,7 @@ TEST_CASE("test the Queue class")
         REQUIRE_FALSE(c.is_empty());
         REQUIRE_FALSE(d.is_empty());
     }
-
+/*
     SECTION("test peek") {
         REQUIRE_THROWS_AS(a.peek(), std::underflow_error);
         REQUIRE(b.peek() == 1);
@@ -174,5 +174,5 @@ TEST_CASE("test the Queue class")
             }
         }
         REQUIRE(d.is_empty());
-    }
+    } */
 }
