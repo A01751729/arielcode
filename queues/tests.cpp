@@ -50,7 +50,7 @@ TEST_CASE("test the Queue class")
         REQUIRE_FALSE(c.is_empty());
         REQUIRE_FALSE(d.is_empty());
     }
-/*
+
     SECTION("test peek") {
         REQUIRE_THROWS_AS(a.peek(), std::underflow_error);
         REQUIRE(b.peek() == 1);
@@ -174,5 +174,5 @@ TEST_CASE("test the Queue class")
             }
         }
         REQUIRE(d.is_empty());
-    } */
+    } 
 }

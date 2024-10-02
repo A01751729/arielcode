@@ -1,15 +1,10 @@
 #include <iostream>
 #include "queue.h"
 int main(){
-    Queue<int> a(2);
+    Queue<bool> a(0);
     std::cout<<a.size()<<"\n";
     std::cout<<a.capacity()<<"\n";
-    a.enqueue(3);
-    std::cout<<a.size()<<"\n";
-    a.enqueue(4);
-    std::cout<<a.size()<<"\n";
-    std::cout<<a.peek()<<"\n";
-
+    a.enqueue(true);
 
 
     std::cout<<"bool a done"<<"\n";

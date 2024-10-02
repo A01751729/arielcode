@@ -1,3 +1,11 @@
+/*----------------------------------------------------------
+ * Lab #3: Queues
+ *
+ * Date: 02-Oct-2024
+ * Authors:
+#           A01751433 Israel Gonzalez Huerta
+#           A01751729 Andres Mendez Cortez
+ *----------------------------------------------------------*/
 #pragma once
 #include <iostream>
 
@@ -6,7 +14,7 @@ class Queue{
     public:
     //complexity O(1)
     Queue(int capacity){
-        _capacity=capacity;
+        _capacity=capacity+1;
         _last=0;
         _next=0;
         _size=0;
@@ -25,15 +33,15 @@ class Queue{
 
     //complexity O(1)
     int capacity() const{
-        return _capacity;
+        return _capacity-1;
     }
 
     //complexity O(1)
     void enqueue(T value){
-        /* me hace cosas feas con el mod 
+        // me hacia cosas feas con el mod 
         if((_next+1)%_capacity==_last){
             throw std::overflow_error("Queue Overflow!");
-        }*/
+        }
         _data[_next]=value;
         _next=(_next+1)%_capacity;
         _size++;
@@ -55,18 +63,18 @@ class Queue{
         while(not is_empty()){
             dequeue();
         }
+        _last=0;
         _next=0;
         _size=0;
 
     }
 
-    //complexity O()
+    //complexity O(1)
     T peek() const{
         if (is_empty()) {
             throw std::underflow_error("Queue Underflow");
         }
-        T value=_data[_last];
-        return value;
+        return _data[_last];
     }
 
     //complexity O(1)
