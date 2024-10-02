@@ -61,7 +61,7 @@ class Queue{
     }
 
     //complexity O()
-    T peek(){
+    T peek() const{
         if (is_empty()) {
             throw std::underflow_error("Queue Underflow");
         }
@@ -70,7 +70,7 @@ class Queue{
     }
 
     //complexity O(1)
-    bool is_empty(){
+    bool is_empty() const{
         return size()==0;
     }
 
